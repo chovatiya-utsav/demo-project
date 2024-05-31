@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navabar {
+    position: fixed;
+    width: 100vw;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    background-color: aqua;
+    height: 6vh;
+}
+
+ul li,.link {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul li:hover {
+    color: #edac3d;
+    background-color: #e4e43c;
+}
+
+ul li :active {
+    color: brown;
+}

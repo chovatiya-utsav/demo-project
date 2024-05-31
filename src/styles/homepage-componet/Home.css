@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    margin: 0;
+}
+
+.userHeding {
+    position: sticky;
+    top: -1%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0px 20px;
+}
+
+.userHeding button {
+    padding: 10px 30px;
+    height: fit-content;
+    margin: 0px 5px;
+}
+
+.displaydata table,
+tr,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.displaydata {
+    margin: 0px 5px;
+}
+
+.displaydata table tr td button,
+input {
+    padding: 7px 20px;
+    margin: 5px;
+}
+
+.loding-div {
+    width: 40px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.loder-heding {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 10px;
+    font-size: 9px;
+}
+
+.loder {
+    position: absolute;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transform: rotate(45deg);
+    box-sizing: border-box;
+}
+
+.loder::before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    inset: -10px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    animation: prixClipFix 1s infinite linear;
+}
+
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 100%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+
+}

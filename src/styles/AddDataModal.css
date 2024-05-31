@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fade {
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.modal-dialog {
+    max-width: 400px;
+    background-color: white;
+    margin: 124px auto;
+}
+
+.modal-header {
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: x-large;
+}
+
+.closeIcone {
+    cursor: pointer;
+    padding: 5px 7px;
+}
+
+.closeIcone i {
+    font-size: 18px;
+}
+
+.editform {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.editform .info {
+    margin-bottom: 20px;
+}
+
+.editform label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.editform input[type="text"],
+.editform textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.editform textarea {
+    resize: vertical;
+}
+
+.editform input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.editform input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.editform .infobutton {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.infobutton button {
+    width: 50%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.infobutton button:hover {
+    background-color: #f0f0f0;
+}
+
+.infobutton button:first-child:hover {
+    background-color: #f9f2f2;
+    color: #333;
+}
+
+.infobutton .editbutton {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.infobutton .editbutton:hover {
+    background-color: #32a038;
+}
+
+.showerror {
+    color: red;
+    font-weight: bold;
+}

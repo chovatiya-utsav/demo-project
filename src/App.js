@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./componet/pages/Home";
+import About from "./componet/pages/About";
+import Contactus from "./componet/pages/Contactus";
+import UserLogin from './componet/pages/UserLogin';
+import Proteced from "./componet/commonComponet/Proteced";
+import UserRegistration from "./componet/pages/UserRegistration";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Proteced Componet={Home} />} />
+        <Route path="/*" element={<Proteced Componet={Home} />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contactus" element={<Proteced Componet={Contactus} />} />
+        <Route path="/UserLogin" element={<UserLogin />} />
+        <Route path="/UserRegistration" element={<UserRegistration />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

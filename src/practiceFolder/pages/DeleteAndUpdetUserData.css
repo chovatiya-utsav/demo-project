@@ -1,0 +1,44 @@
+/* .userDataDeleteComponet {
+    position: absolute;
+} */
+
+.heding {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    width: 95vw;
+}
+
+.button {
+    padding: 10px 20px;
+}
+
+.data {
+    margin-top: 124px;
+}
+
+.data,
+th,
+tr,
+td {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.info {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    width: max-content;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    margin: 3vh 0vw 0vh 33vw;
+}
+
+.userid{
+    margin-left: 30px;
+}

@@ -1,0 +1,12 @@
+.Footer{
+    display: flex;
+    gap: 20px;
+    background-color: black;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 1vw;
+}
+
+.Footer h1{
+    color: white;
+}

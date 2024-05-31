@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: aquamarine;
+}
+
+.navbarLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0PX 20px;
+}
+
+.pagelink {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.pagelink li,
+a,
+.homepagelink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 30px;
+    padding: 10px 5px;
+}
+
+a {
+    padding: 10px 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover,
+.homepagelink .user-profil:hover,
+.homepagelink .logo:hover {
+    background-color: rgb(28, 132, 185);
+}
+
+
+.navbar .navbarLink .homepagelink .user-profil .userInfo {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.navbar .navbarLink .homepagelink .user-profil .user-icone {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.navbar .navbarLink .homepagelink .user-profil .UserLogoutButton {
+    background-color: #fff;
+    width: auto;
+    padding: 6px;
+    border: 1px solid;
+    position: fixed;
+    top: 50px;
+    z-index: 2;
+}
+
+.navbar .navbarLink .homepagelink .user-profil .UserLogoutButton .userButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 10px 0px;
+}
+
+.navbar .navbarLink .homepagelink .user-profil .UserLogoutButton button {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.navbar .navbarLink .homepagelink .user-profil .UserLogoutButton .userInfo {
+    display: block;
+    padding: 20px;
+    
+}
+
+.navbar .navbarLink .homepagelink .user-profil .UserLogoutButton .userInfo .userheding {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-self: center;
+    padding: 5px;
+}
+.navbar .navbarLink .homepagelink .user-profil .UserLogoutButton .userInfo .userheding span,h3 {
+    display: block;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
