@@ -1,76 +1,48 @@
-import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import '../../../../styles/Hader.css'
+import { useEffect, useState } from 'react';
 const Hader = () => {
-    const [openLogoutButton, setLogoutButton] = useState(false);
-    const [userName, setUserName] = useState(null);
-    const [userEmail, setUserEmail] = useState(null);
-    const [userPassword, setUserPassword] = useState(null);
-    const [userMobilNo, setUserMobilNo] = useState(null);
-    const [openUserProfil, setOpenUserProfil] = useState(false)
-    const toggonButton = () => {
-        setLogoutButton(!openLogoutButton)
-    }
+    const [userLoginName, setUserLoginName] = useState(null);
+    const [userProfileImageUrl, setUserProfileImageUrl] = useState("https://t3.ftcdn.net/jpg/02/61/90/28/240_F_261902858_onbxqSHf193X4w7e8fdRH8vjjoT3vOVZ.jpg");
 
     useEffect(() => {
-        const userLoginData = JSON.parse(localStorage.getItem('loginUserData'));
-        if (userLoginData) {
-            setUserName(userLoginData.userName)
-            setUserEmail(userLoginData.email)
-            setUserMobilNo(userLoginData.mobilNO)
-            setUserPassword(userLoginData.password)
+        const login = JSON.parse(localStorage.getItem('loginUserData'));
+        // console.log(login.imageUrl)
+        if (login) {
+            const name = login.userName.split(' ');
+            setUserProfileImageUrl(login.imageUrl)
+            if (name[1]) {
+                setUserLoginName(name[0] + ' ' + name[1])
+            } else {
+                setUserLoginName(name[0])
+            }
         }
-    }, [userName])
-    console.log(userName)
-    const navigate = useNavigate()
-    const handelLogout = () => {
-        if (userName) {
+    }, [])
+
+    const navigate = useNavigate();
+    const userLogout = () => {
+        if (userLoginName) {
             localStorage.removeItem('loginUserData')
             navigate('/UserLogin')
         }
-    }
-
-    const toggalProfil = () => {
-        setOpenUserProfil(!openUserProfil)
     }
     return (
         <div className='navbar'>
             <div className='navbarLink'>
                 <div className='homepagelink'>
                     <div className='user-profil'>
-                        <NavLink onClick={toggonButton}>    <img
-                            src="https://t3.ftcdn.net/jpg/02/61/90/28/240_F_261902858_onbxqSHf193X4w7e8fdRH8vjjoT3vOVZ.jpg"
+                        <NavLink to="/Home"> <img
+                            src={userProfileImageUrl}
                             alt="USer images"
                             title='user image'
-                            className='user-icone' />
-                            <span>{userName}</span></NavLink>
-                        {openLogoutButton ?
-                            <div className='UserLogoutButton'>
-                                <div className='userButton'>
-                                    <button onClick={toggalProfil} >Profile </button>
-                                    <button type="button" onClick={handelLogout} >Logout</button>
-                                </div>{openUserProfil ?
-                                    <div className='userInfo'>
-                                        <div className='userheding'>
-                                            <span>user Name :</span><h3>{userName}</h3>
-                                        </div>
-                                        <div className='userheding'>
-                                            <span>Contect No :</span><h3>{userMobilNo}</h3>
-                                        </div>
-                                        <div className='userheding'>
-                                            <span>E-mail :</span><h3>{userEmail}</h3>
-                                        </div>
-                                        <div className='userheding'>
-                                            <span>Password :</span><h3>{userPassword}</h3>
-                                        </div>
-                                        <div>
-                                            <button onClick={toggalProfil}>cancel</button>
-                                        </div>
-                                    </div> : null} </div> : null}
-
-                    </div>
-                    <div className='logo'>
-                        <NavLink to="/Home" >  Logo </NavLink>
+                            className='user-icone' /><span>{userLoginName}</span>
+                            {userLoginName ?
+                                <div className="dropdown-content">
+                                    <h5>profile</h5>
+                                    <h5 onClick={userLogout}>Logout</h5>
+                                    <h5>cancel</h5>
+                                </div> : null}
+                        </NavLink>
                     </div>
                 </div>
                 <ul className='pagelink'>

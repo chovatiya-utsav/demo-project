@@ -1,13 +1,16 @@
-import React, {  useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Hader from '../commonComponet/layout/hader/Hader';
 import { useNavigate } from 'react-router';
 import '../../styles/homepage-componet/UserRegistration.css';
 import { Field, Formik } from 'formik';
 
 const UserRegistration = () => {
-const [userAlreadyExists,setUserAlreadyExists] = useState(null)
-    const navigate = useNavigate();
+    const [userAlreadyExists, setUserAlreadyExists] = useState(null);
+    const [imageUrlError, setImageUrlError] = useState(null)
+    const [imageUrl, setImageUrl] = useState(null);
 
+    const navigate = useNavigate();
+    const fileRef = useRef(null)
     const handelLoginPage = () => {
         navigate('/userLogin')
     }
@@ -17,6 +20,27 @@ const [userAlreadyExists,setUserAlreadyExists] = useState(null)
             e.preventDefault();
         }
     };
+
+    const fileUploadFolderHandle = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            if (file.size < 200000) {
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64String = reader.result;
+                    setImageUrl(base64String);
+                };
+                reader.readAsDataURL(file);
+            } else {
+
+                setImageUrlError("your file size is to big")
+            }
+        }else{
+            setImageUrlError("Image is Required")
+        }
+
+    }
     return (
         <div>
             <Hader />
@@ -29,9 +53,7 @@ const [userAlreadyExists,setUserAlreadyExists] = useState(null)
                         email: ""
                     }}
                     validate={(value) => {
-
                         const errors = {};
-
                         if (!value.userName) {
                             errors.userName = "User name is Required.";
                         }
@@ -60,20 +82,25 @@ const [userAlreadyExists,setUserAlreadyExists] = useState(null)
                     }}
 
 
-                    onSubmit={(values, validate, { setSubmitting }) => {
+                    onSubmit={(values, { setSubmitting }) => {
 
                         const registerData = JSON.parse(localStorage.getItem("registerDataValue"));
-                        console.log("registerData", registerData);
+                        // console.log("registerData", registerData);
+                        // console.log("submit value",values)
+
                         const userData =
                         {
                             "mobilNO": values.mobilNO,
                             "userName": values.userName,
                             "password": values.password,
-                            "email": values.email
+                            "email": values.email,
+                            "imageUrl": imageUrl
                         };
+
 
                         if (!registerData) {
                             localStorage.setItem('registerDataValue', JSON.stringify([userData]));
+                            navigate('/UserLogin');
                         } else {
                             const existData = registerData.find((item) => item?.email === values.email);
                             if (!existData) {
@@ -84,12 +111,14 @@ const [userAlreadyExists,setUserAlreadyExists] = useState(null)
                             }
                         }
 
+
                         setSubmitting(false);
                     }}
 
                 >
 
                     {(Formik) => (<form action="#" className='userLoginForm' onSubmit={Formik.handleSubmit}>
+                        {/* {console.log("image file",Formik)} */}
                         <div className='input-fild'>
                             <label className='inputLable'>User Name : </label>
                             {Formik.errors.userName && Formik.touched.userName && <span className='error'>{Formik.errors.userName}</span>}
@@ -119,10 +148,32 @@ const [userAlreadyExists,setUserAlreadyExists] = useState(null)
                                 onKeyDown={handleKeyDown}
                                 placeholder='0000000000'>
                             </Field>
-                            <span className='error'>{userAlreadyExists}</span>
                         </div>
+                        <div className='input-fild'>
+                            <label className='inputLable'>upload your profile picture</label>
+                            {<span className='error'>{imageUrlError}</span>}
+                            <div className='userInputImageDiv'>
+                                <input hidden
+                                    ref={fileRef}
+                                    name="file"
+                                    type="file"
+                                    id="user-image"
+                                    onChange={(e) => fileUploadFolderHandle(e)}
+                                    action="image/*" >
+
+                                </input>
+                                <button className='UserInputImage' onClick={() => { fileRef.current.click() }}>Uplode</button>
+                                {
+                                    imageUrl && <div className='user-img'>
+                                        <img src={imageUrl} alt="images" title='user image' width="100px" height="100px" />
+                                    </div>
+                                }
+                                {/* {console.log("imageUrl", imageUrl)} */}
+                            </div>
+                        </div>
+                        <span className='error'>{userAlreadyExists}</span>
                         <div className='userFormButton'>
-                            <button type='button' className='button Login-button' onClick={handelLoginPage} >Login</button>
+                            <button type='button' className='button Login-button' onClick={handelLoginPage} accept="image/*">Login</button>
                             <button type='submit' className='button Login-Button'  >Sign up</button>
                         </div>
                     </form>)}

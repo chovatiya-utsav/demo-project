@@ -28,6 +28,11 @@
     padding: 5px;
     line-height: 20px;
 }
+.userLogin-Div .userLoginForm  .userInputImageDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .userLogin-Div .userLoginForm .UserInput {
     font-size: larger;
@@ -38,6 +43,17 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+.userLogin-Div .userLoginForm .UserInputImage {
+    font-size: larger;
+    border: 2px solid #968f8f;
+    border-radius: 15px;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    padding: 5px 20px;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
 }
 
 .userLogin-Div .userLoginForm .UserInput:hover {
@@ -77,10 +93,15 @@
     background-color: rgba(13, 208, 10, 0.762);
 }
 
-.userLogin-Div .userLoginForm .error {
+.error {
     color: #a20606;
     font-weight: bold;
     font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.user-img img{
+    border: 2px solid #767676;
+    border-radius: 50%;
 }

@@ -1,12 +1,23 @@
 import Hader from "../commonComponet/layout/hader/Hader";
 import '../../styles/homepage-componet/UserLogin.css';
-import { Field, Formik, useFormik, validateYupSchema } from 'formik';
+import { Field, Formik } from 'formik';
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const UserLogin = () => {
-  const [userNotFoundErre, setuserNotFoundErre] = useState(null)
+  const [userNotFoundErre, setuserNotFoundErre] = useState(null);
+  // const [userProfilImage, setUserProfilImage] = useState(null);
+  const [registraData, setRegistraData] = useState(null);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const registraData = JSON.parse(localStorage.getItem("registerDataValue"))
+    setRegistraData(registraData)
+    // if(registraData){
+    //   setUserProfilImage(registraData.imageFile)
+    // }
+  },[])
 
   const handelRegistration = () => {
     navigate('/UserRegistration')
@@ -35,7 +46,6 @@ const UserLogin = () => {
         }}
 
         onSubmit={(value, { setSubmitting }) => {
-          const registraData = JSON.parse(localStorage.getItem("registerDataValue"))
           console.log('valu', registraData)
           if (!registraData) {
             setuserNotFoundErre("user not registered please registration must be complete");
