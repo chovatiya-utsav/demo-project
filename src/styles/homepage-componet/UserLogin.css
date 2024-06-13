@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +44,10 @@
     width: fit-content;
 }
 
+.form-container .inputField .userPassword {
+    position: relative;
+}
+
 .form-container .inputField input {
     border: 1px solid #636161;
     border-radius: 15px;
@@ -51,10 +56,25 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    width: -webkit-fill-available;
+    padding-right: 78px;
 }
 
 .form-container .inputField input:hover {
     border: 2px solid #000;
+}
+
+
+
+.form-container .inputField .passwordShow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    right: 25px;
+    height: 100%;
+    cursor: pointer;
 }
 
 .form-container .inputField .FieldError {

@@ -8,6 +8,7 @@ const UserRegistration = () => {
     const [userAlreadyExists, setUserAlreadyExists] = useState(null);
     const [imageUrlError, setImageUrlError] = useState(null)
     const [imageUrl, setImageUrl] = useState(null);
+    const [passwordShow, setPasswordShow] = useState(false);
 
     const navigate = useNavigate();
     const fileRef = useRef(null)
@@ -21,26 +22,31 @@ const UserRegistration = () => {
         }
     };
 
-    const fileUploadFolderHandle = (event) => {
+    const fileUploadFolderHandle = async (event) => {
         const file = event.target.files[0];
         if (file) {
             if (file.size < 200000) {
-
+                event.preventDefault();
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64String = reader.result;
                     setImageUrl(base64String);
+                    setImageUrlError(null);
                 };
                 reader.readAsDataURL(file);
             } else {
+                console.log("big file")
 
-                setImageUrlError("your file size is to big")
+                setImageUrl(null);
+                setImageUrlError("Image size should be less than 200 KB.");
             }
-        }else{
-            setImageUrlError("Image is Required")
         }
-
     }
+
+    const toggalPasswordShow = () => {
+        setPasswordShow(!passwordShow)
+    }
+
     return (
         <div>
             <Hader />
@@ -50,7 +56,8 @@ const UserRegistration = () => {
                         mobilNO: "",
                         userName: "",
                         password: "",
-                        email: ""
+                        email: "",
+                        files: ""
                     }}
                     validate={(value) => {
                         const errors = {};
@@ -77,6 +84,10 @@ const UserRegistration = () => {
                         }
                         else if (value.mobilNO.length > 10) {
                             errors.mobilNO = "Mobile number must be 10 digits not more then 10."
+                        }
+
+                        if (!imageUrl) {
+                            errors.image = "Image is Required";
                         }
                         return errors;
                     }}
@@ -134,7 +145,20 @@ const UserRegistration = () => {
                         <div className='input-fild'>
                             <label className='inputLable'>Password : </label>
                             {Formik.errors.password && Formik.touched.password && <span className='error'>{Formik.errors.password}</span>}
-                            <Field className='UserInput' name="password" type="password" value={Formik.values.password} onChange={Formik.handleChange}></Field>
+                            <div className="userPassword">
+                                <Field className='UserInput' name="password" type={passwordShow ? "text" : "password"} value={Formik.values.password} onChange={Formik.handleChange}></Field>
+                                {
+                                    Formik.values.password ?
+                                        <>
+                                            <div className='passwordShowIcone'>
+                                                {
+                                                    passwordShow ? <i onClick={toggalPasswordShow} className="fa fa-eye-slash" title='Hide'></i> :
+                                                        <i onClick={toggalPasswordShow} className="fa fa-eye" aria-hidden="true" title='Show'></i>
+                                                }
+                                            </div>
+                                        </> : null
+                                }
+                            </div>
                         </div>
                         <div className='input-fild'>
                             <label className='inputLable'>Mobile NO :</label>
@@ -151,7 +175,7 @@ const UserRegistration = () => {
                         </div>
                         <div className='input-fild'>
                             <label className='inputLable'>upload your profile picture</label>
-                            {<span className='error'>{imageUrlError}</span>}
+                            {<span className='error'>{!imageUrl && imageUrlError ? imageUrlError : Formik.errors.image}</span>}
                             <div className='userInputImageDiv'>
                                 <input hidden
                                     ref={fileRef}
@@ -162,7 +186,7 @@ const UserRegistration = () => {
                                     action="image/*" >
 
                                 </input>
-                                <button className='UserInputImage' onClick={() => { fileRef.current.click() }}>Uplode</button>
+                                <button type="button" className='UserInputImageButton' onClick={() => { fileRef.current.click() }}>Uplode</button>
                                 {
                                     imageUrl && <div className='user-img'>
                                         <img src={imageUrl} alt="images" title='user image' width="100px" height="100px" />

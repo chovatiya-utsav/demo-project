@@ -59,7 +59,7 @@ a {
 }
 
 .navbar .navbarLink .homepagelink .user-profil .dropdown-content {
-   display: none;
+    display: none;
     position: absolute;
     top: 49px;
     background-color: #f1f1f1;
@@ -78,6 +78,7 @@ a {
     padding: 12px 16px;
     display: block;
 }
+
 .navbar .navbarLink .homepagelink .user-profil .dropdown-content h5:hover {
     background-color: #ddd;
 }
@@ -86,4 +87,45 @@ a {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+.navbar .navbarLink .menuIcone i {
+    display: none;
+    padding: 16px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 590px) {
+
+    .navbar .navbarLink .menuIcone {
+        position: relative;
+    }
+
+    .navbar .navbarLink .dropdown-menu-content {
+        position: absolute;
+        display: none;
+        top: 49px;
+        background-color: #f1f1f1;
+        min-width: 189px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        right: 0px;
+        flex-direction: column;
+    }
+
+    .navbar .navbarLink .dropdown-menu-content .pagelink {
+        flex-direction: column;
+    }
+
+    .navbar .navbarLink .menuIcone i {
+        display: block;
+    }
+
+    .navbar .navbarLink .menuIcone:hover .dropdown-menu-content {
+        display: flex;
+    }
+
+    .navbar .navbarLink .menuIcone:hover {
+        background-color: rgb(28, 132, 185);
+    }
 }

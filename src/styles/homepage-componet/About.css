@@ -1,0 +1,81 @@
+.slidercontener .slick-list {
+    border-radius: 17px;
+}
+
+.cardSliderContener,
+.slidercontener {
+    width: 90%;
+    margin: 50px auto;
+}
+
+
+
+.cardSliderContener .card {
+    max-width: 400px;
+    height: 350px;
+    position: relative;
+    padding: 0px 10px;
+    margin: 20px 0px;
+}
+
+.cardSliderContener .card .card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.cardSliderContener .card .card-discrption {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    font-size: small;
+    padding: 2px 8px;
+    line-height: 30px;
+    width: 100%;
+}
+
+.cardSliderContener .card .card-discrption .heding {
+    font-weight: bold;
+    font-size: large;
+}
+
+.cardSliderContener .slick-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.cardSliderContener .slick-prev:before,
+.cardSliderContener .slick-next:before {
+    font-family: 'slick';
+    font-size: xx-large;
+    line-height: 1;
+    opacity: .75;
+    color: #514f4f;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cardSliderContener .slick-dots li button:before {
+    border: 3px solid #fffb00;
+    width: 10px;
+    height: 10px;
+    transform: rotate(47deg);
+    box-shadow: 0px 0px 6px 0px #605f5f;
+    content: "";
+}
+
+
+
+@media only screen and (max-width: 580px) {
+
+
+    .cardSliderContener .slick-prev:before,
+    .cardSliderContener .slick-next:before {
+        color: #858080;
+    }
+
+    .cardSliderContener .card {
+        width: calc(100% - 90px);
+        margin: auto;
+    }
+}

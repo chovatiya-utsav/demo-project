@@ -30,7 +30,9 @@ const UpdateDataModal = (props) => {
             >
                 <Modal.Header >
                     <Modal.Title id='ModalHeader'>Update User Data</Modal.Title>
-                    <button className="closeIcone" onClick={toggalUdateModal}><i className="fa fa-times" aria-hidden="true"></i></button>
+                    <button className="closeIcone" onClick={toggalUdateModal}>
+                        <img src="https://logowik.com/content/uploads/images/close1437.jpg" className='closeIconeImage' alt="closeImage" />
+                    </button>
                 </Modal.Header>
                 <Modal.Body>
                     <form action="#" className='editform' onSubmit={(e) => { e.preventDefault() }}>

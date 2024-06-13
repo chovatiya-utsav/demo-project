@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 
 const UserLogin = () => {
   const [userNotFoundErre, setuserNotFoundErre] = useState(null);
-  // const [userProfilImage, setUserProfilImage] = useState(null);
   const [registraData, setRegistraData] = useState(null);
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,10 +17,14 @@ const UserLogin = () => {
     // if(registraData){
     //   setUserProfilImage(registraData.imageFile)
     // }
-  },[])
+  }, [])
 
   const handelRegistration = () => {
     navigate('/UserRegistration')
+  }
+
+  const toggalPasswordShow = () => {
+    setPasswordShow(!passwordShow)
   }
   return (
     <>
@@ -76,7 +80,19 @@ const UserLogin = () => {
               <div className="inputField">
                 <label >Password :</label>
                 {Formik.errors.password && Formik.touched.password ? <span className="FieldError">{Formik.errors.password}</span> : null}
-                <Field name="password" type="password" onChange={Formik.handleChange} ></Field>
+                <div className="userPassword">
+                  <Field name="password" type={passwordShow ? "text" : "password"} onChange={Formik.handleChange} ></Field>
+                  {
+                    Formik.values.password ?
+                      <>
+                        {
+                          passwordShow ?
+                            <span onClick={toggalPasswordShow} className="passwordShow">  <i className="fa fa-eye-slash"></i></span>
+                            : <span onClick={toggalPasswordShow} className="passwordShow"> <i className="fa fa-eye" aria-hidden="true"></i> </span>
+                        }
+                      </> : null
+                  }
+                </div>
                 <span className="FieldError">{userNotFoundErre}</span>
               </div>
               <div className="formButton">

@@ -45,17 +45,27 @@ const Hader = () => {
                         </NavLink>
                     </div>
                 </div>
-                <ul className='pagelink'>
-                    <li className='link'>
-                        <NavLink to="/" >  Home </NavLink>
-                    </li>
-                    <li className='link'>
-                        <NavLink to="/About"> About </NavLink>
-                    </li>
-                    <li className='link'>
-                        <NavLink to="/Contactus"> Contact us  </NavLink>
-                    </li>
-                </ul>
+                <div className='menuIcone'>
+                    <div className='menuIconediv'>
+                        <i className="fa fa-bars"></i>
+                    </div>
+                    <div className='dropdown-menu-content'>
+                        <ul className='pagelink'>
+                            <li className='link'>
+                                <NavLink to="/" >  Home </NavLink>
+                            </li>
+                            <li className='link'>
+                                <NavLink to="/About"> About </NavLink>
+                            </li>
+                            <li className='link'>
+                                <NavLink to="/Contactus"> Contact us  </NavLink>
+                            </li>
+                            <li className='link'>
+                                <NavLink to="/Fichier">Fichier </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div >
     )

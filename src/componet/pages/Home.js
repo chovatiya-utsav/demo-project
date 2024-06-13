@@ -25,7 +25,7 @@ const Home = () => {
                     setUserData(resp);
                 })
             })
-            setProgressBarFill(100);
+        setProgressBarFill(100);
         }, [2000])
     }, [])
     const handelProgressBar = () => {
@@ -94,9 +94,9 @@ const Home = () => {
     // const userDataUpdate = (id) => {
     //     // setUpdateModalOpen(true)
     //     setUpdateUserIndexNo(id);
-    //     const selecteddat = userData.at(id)
-    //     setTitle(selecteddat.title)
-    //     setBody(selecteddat.body)
+    //     const selecteddata = userData.at(id)
+    //     setTitle(selecteddata.title)
+    //     setBody(selecteddata.body)
     // }
 
     function handleUpdate(title, body) {
@@ -134,9 +134,9 @@ const Home = () => {
     const userDataUpdate = (id) => {
         setTypeOfModal("edit")
         setUpdateUserIndexNo(id);
-        const selecteddat = userData.at(id)
-        setTitle(selecteddat.title)
-        setBody(selecteddat.body)
+        const selecteddata = userData.at(id)
+        setTitle(selecteddata.title)
+        setBody(selecteddata.body)
         setToggalModalOpen(true)
         handelProgressBar()
     }

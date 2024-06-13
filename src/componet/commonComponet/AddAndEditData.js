@@ -38,7 +38,7 @@ const AddAndEditData = (props) => {
     // }
 
     const addAndEditUserData = () => {
-        
+
         if (typeOfModal === "add") {
             if (title !== '' && body !== '') {
                 const data = {
@@ -49,7 +49,7 @@ const AddAndEditData = (props) => {
                 setBody('');
                 setTitle('');
                 toggleModal();
-            } 
+            }
         } else {
             if (title !== '' && body !== '') {
                 handleUpdate(title, body)
@@ -73,8 +73,10 @@ const AddAndEditData = (props) => {
                 aria-labelledby="ModalHeader"
             >
                 <Modal.Header >
-                    <Modal.Title id='ModalHeader'> {typeOfModal === "" ? 'Add New User' : 'Update User Data'}</Modal.Title>
-                    <button className="closeIcone" onClick={toggalModalClose}><i className="fa fa-times" aria-hidden="true"></i></button>
+                    <Modal.Title id='ModalHeader'> {typeOfModal === "add" ? 'Add New User' : 'Update User Data'}</Modal.Title>
+                    <button className="closeIcone" onClick={toggalModalClose}>
+                        <img src="https://logowik.com/content/uploads/images/close1437.jpg" className='closeIconeImage' alt="closeImage" />
+                    </button>
 
                 </Modal.Header>
                 <Modal.Body>
@@ -87,20 +89,20 @@ const AddAndEditData = (props) => {
                             <label >description:</label> {body === "" ? <span className='showerror'>Please fill the fields</span> : null}
                             <textarea name="body" cols="27" rows="5" value={body} onChange={(e) => setBody(e.target.value)} placeholder='Enter description'></textarea>
                         </div>
-                        <div className='infobutton'>
-                            <button onClick={() => toggalModalClose()}>cancel</button>
-                            <button onClick={addAndEditUserData} className='editbutton'>{typeOfModal === "add" ? "save" : "Update"}</button>
+                    </form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <div className='infobutton'>
+                        <button onClick={() => toggalModalClose()}>cancel</button>
+                        <button onClick={addAndEditUserData} className='editbutton'>{typeOfModal === "add" ? "save" : "Update"}</button>
 
-                            {/* {
+                        {/* {
                                 typeOfModal === "add" ?
                                     <button onClick={saveUserData} className='editbutton'>save</button>
                                     :
                                     <button onClick={saveUpdetUserData} className='editbutton'>Update</button>
                             } */}
-                        </div>
-                    </form>
-                </Modal.Body>
-                <Modal.Footer>
+                    </div>
                 </Modal.Footer>
             </Modal>
         </div>

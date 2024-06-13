@@ -5,6 +5,7 @@ import UserLogin from './componet/pages/UserLogin';
 import Proteced from "./componet/commonComponet/Proteced";
 import UserRegistration from "./componet/pages/UserRegistration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Fichier from "./componet/pages/Fichier";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/*" element={<Proteced Componet={Home} />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contactus" element={<Proteced Componet={Contactus} />} />
+        <Route path="/Fichier" element={<Proteced Componet={Fichier} />} />
         <Route path="/UserLogin" element={<UserLogin />} />
         <Route path="/UserRegistration" element={<UserRegistration />} />
       </Routes>

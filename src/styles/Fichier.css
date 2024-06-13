@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    font-family: "Epilogue", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+
+.container {
+    background-color: #0d1117;
+    padding: 90px 6vw;
+}
+
+.container .heding h2 {
+    color: #fff;
+    text-align: center;
+    font-family: "Epilogue", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 38.75px;
+}
+
+.container .heding span {
+    font-weight: bold;
+    background: linear-gradient(90deg, #b721ff, #21d4fd);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.container .user-select-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px;
+    font-family: Epilogue;
+    font-weight: 400;
+    line-height: 20.5px;
+    text-align: center;
+    color: #fff;
+}
+
+.container .user-select-text span {
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: "Epilogue", sans-serif;
+}
+
+.container .user-select-text .select-input {
+    background: linear-gradient(90deg, #b721ff, #21d4fd);
+    border-radius: 20px;
+}
+
+.container .user-select-text .select-input .dropdwon-selection {
+    padding: 1px;
+}
+
+.css-1u9des2-indicatorSeparator {
+    display: none;
+}
+
+.Department-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 52px 0px;
+}
+
+.Department-info .track-info {
+    width: 47%;
+    text-align: center;
+    border-bottom: 2px solid;
+    background: radial-gradient(67.89% 100% at 50% 95%, rgba(13, 17, 23, 0) 18.14%, #0d1117 75%), linear-gradient(180deg, rgba(13, 17, 23, 0) 69.5%, #0d1117 105%), linear-gradient(90deg, rgba(183, 33, 255, .8) 14.12%, rgba(33, 212, 253, .8) 61.75%);
+    position: relative;
+}
+
+.Department-info .track-info img {
+    width: 50% !important;
+    height: auto !important;
+}
+
+.Department-info .track-bottom-border {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, #b721ff, #21d4fd);
+    position: absolute;
+    bottom: 0px;
+}
+
+.Department-track-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 47%;
+}
+
+
+.Department-track-menu .Department-image {
+    background-color: #272525;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    width: 12vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Department-track-menu .Department-image .image {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin: 10px;
+    width: 9vw;
+    height: 14vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Department-track-menu .active .image {
+    background: linear-gradient(90deg, rgba(250, 51, 240, 0.2), rgba(49, 230, 250, 0.2));
+}
+
+.Department-track-menu .Department-image .image img {
+    width: 40px;
+    height: 40px;
+}
+
+.Department-track-menu .Department-image h5 {
+    color: #fff;
+    padding-bottom: 30px;
+    text-align: center;
+    width: 10vw;
+}
+
+
+.Department-track-menu .Department-image:hover h5 {
+    background: linear-gradient(90deg, #b721ff, #21d4fd);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.Department-track-menu .Department-image:hover .image {
+    background: linear-gradient(90deg, rgba(250, 51, 240, 0.2), rgba(49, 230, 250, 0.2));
+}
+
+.extrea-detail h4 {
+    color: #fff;
+    border: 1px solid #fff;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 13px 17px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin: auto;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 906px) {
+    .container .heding h2 {
+        width: 600px;
+        margin: auto;
+    }
+
+    .container .user-select-text span {
+        display: none;
+    }
+
+    .container .user-select-text {
+        flex-direction: column;
+    }
+
+    .Department-info .track-info {
+        width: 100%;
+    }
+
+    .Department-info {
+        flex-wrap: wrap;
+    }
+
+    .Department-track-menu {
+        width: 100%
+    }
+
+    .Department-track-menu .Department-image {
+        width: 14vw;
+    }
+
+    .Department-track-menu .Department-image .image {
+        width: 11vw;
+    }
+
+    .Department-track-menu .Department-image h5 {
+        width: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 656px) {
+    .Department-track-menu .Department-image {
+        width: 134px;
+    }
+
+    .container .heding h2 {
+        width: 305px;
+        margin: auto;
+        font-size: 19px;
+    }
+
+    .Department-track-menu .Department-image .image {
+        width: 100px;
+    }
+
+    .Department-track-menu {
+        gap: 16px;
+        flex-wrap: nowrap;
+        overflow-y: auto;
+        padding-bottom: 20px;
+        justify-content: flex-start;
+    }
+
+    .Department-track-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .Department-info {
+        margin: 0px;
+    }
+}

@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
-*{
+
+* {
     font-family: "Merriweather", serif;
     font-weight: 300;
     font-style: normal;
 }
+
 .userLogin-Div {
     width: 400px;
     margin: auto;
@@ -28,7 +30,26 @@
     padding: 5px;
     line-height: 20px;
 }
-.userLogin-Div .userLoginForm  .userInputImageDiv{
+
+.userLogin-Div .userLoginForm .input-fild .userPassword {
+    position: relative;
+}
+
+.userLogin-Div .userLoginForm .input-fild .userPassword .passwordShowIcone {
+    position: absolute;
+    top: 0px;
+    right: 27px;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userLogin-Div .userLoginForm .input-fild .userPassword .passwordShowIcone i {
+    font-size: x-large;
+}
+
+.userLogin-Div .userLoginForm .userInputImageDiv {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -44,7 +65,8 @@
     font-weight: 400;
     font-style: normal;
 }
-.userLogin-Div .userLoginForm .UserInputImage {
+
+.userLogin-Div .userLoginForm .UserInputImageButton {
     font-size: larger;
     border: 2px solid #968f8f;
     border-radius: 15px;
@@ -54,6 +76,7 @@
     font-weight: 400;
     font-style: normal;
     display: flex;
+    cursor: pointer;
 }
 
 .userLogin-Div .userLoginForm .UserInput:hover {
@@ -89,6 +112,7 @@
 .userLogin-Div .userLoginForm .userFormButton .Login-button {
     background-color: rgb(137, 214, 128);
 }
+
 .userLogin-Div .userLoginForm .userFormButton .Login-button:hover {
     background-color: rgba(13, 208, 10, 0.762);
 }
@@ -101,7 +125,7 @@
     font-style: normal;
 }
 
-.user-img img{
+.user-img img {
     border: 2px solid #767676;
     border-radius: 50%;
 }
