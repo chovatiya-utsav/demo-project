@@ -8,6 +8,28 @@
 
 }
 
+.Hader {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.Hader .navbar {
+    background-color: #0d1117;
+}
+
+.Hader .navbar a {
+    color: #fff;
+}
+
+.Hader .navbar .navbarLink {
+    margin: 0px 5px;
+}
+
+.Hader .navbar .navbarLink .menuIcone .menuIconediv i {
+    color: #fff;
+}
+
 .container {
     background-color: #0d1117;
     padding: 90px 6vw;
@@ -108,8 +130,8 @@
     cursor: pointer;
     display: flex;
     width: 12vw;
+    height: 180px;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -138,6 +160,7 @@
     padding-bottom: 30px;
     text-align: center;
     width: 10vw;
+    padding: 0px;
 }
 
 
@@ -234,5 +257,9 @@
 
     .Department-info {
         margin: 0px;
+    }
+    .Hader .navbar .navbarLink .dropdown-menu-content {
+        background-color: #1d2229;
+        box-shadow: 0px 1px 10px 3px rgb(232 224 224 / 90%);
     }
 }

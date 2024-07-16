@@ -738,7 +738,7 @@ const Fichier = () => {
     useEffect(() => {
         setSelectImageUrl(subtreackMenu[0].menu)
         setSelectPhoneImageUrl(subtreackMenu[0].menu[0].PhoneImageUrl)
-    },[])
+    }, [])
     const colourStyles = {
         control: (styles) => ({ ...styles, backgroundColor: "#000", height: '45px', width: "290px", borderRadius: "21px", padding: "1px", textAlign: 'start' }),
         option: (styles, { isFocused, isSelected }) => {
@@ -827,7 +827,9 @@ const Fichier = () => {
     }
     return (
         <div>
-            <Hader />
+            <div className='Hader'>
+                <Hader />
+            </div>
             <div className='container'>
                 <div className='heding'>
                     <h2>When you <span className='text-color'>map your journey</span>  with us, you map <span className='text-color'>your success.</span></h2>

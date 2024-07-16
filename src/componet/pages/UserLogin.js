@@ -58,8 +58,12 @@ const UserLogin = () => {
             if (!exitData) {
               setuserNotFoundErre("user not registered please registration must be complete");
             } else {
-              localStorage.setItem('loginUserData', JSON.stringify(exitData));
-              navigate('/')
+              if (exitData.password === value.password) {
+                localStorage.setItem('loginUserData', JSON.stringify(exitData));
+                navigate('/')
+              }else{
+                setuserNotFoundErre("Your Password is invalid Please Enter Correct Password");
+              }
             }
           }
           setSubmitting(false)
